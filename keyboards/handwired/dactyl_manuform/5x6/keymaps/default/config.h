@@ -17,10 +17,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-//#define USE_SERIAL
+/* The halves are wired with I2C */
 #define USE_I2C
 
-//#define MASTER_LEFT
+/* I have an Elite C on the right side for the trackball, hence right is master */
 #define MASTER_RIGHT
 
-//#define EE_HANDS
+/* pmw3360 config  */
+/*Set up trackball sensor integration on Elite C Pin F6*/
+#undef PMW3360_CS_PIN
+#define PMW3360_CS_PIN                       F6
+#define PMW3360_SPI_MODE                     3
+#define PMW3360_SPI_DIVISOR                  64
