@@ -26,6 +26,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* pmw3360 config  */
 /*Set up trackball sensor integration on Elite C Pin F6*/
 #undef PMW3360_CS_PIN
-#define PMW3360_CS_PIN                       F6
-#define PMW3360_SPI_MODE                     3
-#define PMW3360_SPI_DIVISOR                  64
+#define PMW3360_CS_PIN F7
+#define SPLIT_POINTING_ENABLE
+#define POINTING_DEVICE_RIGHT
+#define PMW3360_CPI 400
+#define PMW3389_LIFTOFF_DISTANCE 0x06
+
+/* Tilt the sensor input to the left and invert the left/right axis */
+#define ROTATIONAL_TRANSFORM_ANGLE -60
+#define POINTING_DEVICE_INVERT_X

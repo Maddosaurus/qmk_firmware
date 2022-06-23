@@ -18,4 +18,6 @@ RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 SPLIT_KEYBOARD = yes
 
-POINTING_DEVICE_DRIVER = pmw3360 # Enable trackball support
+# Enable trackball support
+POINTING_DEVICE_DRIVER = pmw3360
+POINTING_DEVICE_ENABLE = yes
