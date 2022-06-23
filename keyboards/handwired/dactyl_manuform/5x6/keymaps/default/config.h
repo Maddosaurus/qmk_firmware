@@ -29,7 +29,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PMW3360_CS_PIN F7
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
-#define PMW3360_CPI 400
 #define PMW3389_LIFTOFF_DISTANCE 0x06
 
 /* Tilt the sensor input to the left and invert the left/right axis */
