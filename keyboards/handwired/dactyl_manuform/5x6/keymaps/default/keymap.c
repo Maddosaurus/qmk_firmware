@@ -3,9 +3,11 @@
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
+#define _SCROLL 3
 
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
+#define SCHO LT(_SCROLL,KC_HOME)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_5x6(
@@ -15,7 +17,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,                         KC_N  , KC_M  ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLASH,
                          KC_LBRC,KC_RBRC,                                                       KC_ENT, KC_BSPC, 
                                          RAISE,KC_SPC,                           KC_LGUI, LOWER,
-                                         KC_TAB,KC_HOME,                         _______,  _______,
+                                         KC_TAB,SCHO,                            _______,  _______,
                                          KC_BSPC, KC_GRV,                        KC_LALT, KC_DELETE
     ),
 
@@ -24,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC, KC_P7 , KC_P8 , KC_P9 ,_______,KC_PLUS,
         _______,KC_HOME,KC_PGUP,KC_PGDN,KC_END ,KC_LPRN,                        KC_RPRN, KC_P4 , KC_P5 , KC_P6 ,KC_MINS,KC_PIPE,
         _______,_______,_______,_______,_______,_______,                        _______, KC_P1 , KC_P2 , KC_P3 ,KC_EQL ,KC_UNDS,
-                                                _______,KC_PSCR,            _______, KC_P0,
+                        _______,KC_PSCR,                                                        _______, KC_P0,
                                                 _______,_______,            _______,_______,
                                                 _______,_______,            _______,_______,
                                                 _______,_______,            _______,_______
@@ -36,7 +38,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC,_______,KC_NLCK,KC_INS ,KC_SLCK,KC_MUTE,
           _______,KC_LEFT,KC_UP  ,KC_DOWN,KC_RGHT,KC_LPRN,                        KC_RPRN,KC_MPRV,KC_MPLY,KC_MNXT,_______,KC_VOLU,
           _______,_______,_______,_______,_______,_______,                        _______,_______,_______,_______,_______,KC_VOLD,
-                                                  _______,_______,            KC_EQL ,_______,
+                        _______,_______,                                                        KC_EQL ,_______,
+                                                  _______,_______,            _______,_______,
+                                                  _______,_______,            _______,_______,
+                                               KC_MS_BTN2,KC_MS_BTN1,         _______,_______
+    ),
+    [_SCROLL] = LAYOUT_5x6(
+          _______,_______,_______,_______,_______,_______,                        _______,_______,_______,_______,_______,_______,
+          _______,_______,_______,_______,_______,_______,                        _______,_______,_______,_______,_______,_______,
+          _______,_______,_______,_______,_______,_______,                        _______,_______,_______,_______,_______,_______,
+          _______,_______,_______,_______,_______,_______,                        _______,_______,_______,_______,_______,_______,
+                        _______,_______,                                                        _______,_______,
                                                   _______,_______,            _______,_______,
                                                   _______,_______,            _______,_______,
                                                KC_MS_BTN2,KC_MS_BTN1,         _______,_______
@@ -51,19 +63,20 @@ pointing_device_set_cpi(800);
 #endif
 }
 
-/*
+
+// FIXME: Find source for this
 static bool scrolling_mode = false;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
-        case _RAISE:  // If we're on the _RAISE layer enable scrolling mode
+        case _SCROLL:  // If we're on the _SCROLL layer enable scrolling mode
             scrolling_mode = true;
-            pointing_device_set_cpi(2000);
+            pointing_device_set_cpi(100);
             break;
         default:
             if (scrolling_mode) {  // check if we were scrolling before and set disable if so
                 scrolling_mode = false;
-                pointing_device_set_cpi(8000);
+                pointing_device_set_cpi(800);
             }
             break;
     }
@@ -72,11 +85,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     if (scrolling_mode) {
-        mouse_report.h = mouse_report.x;
-        mouse_report.v = mouse_report.y;
+        mouse_report.h = 0;
+        mouse_report.v = -mouse_report.y;
         mouse_report.x = 0;
         mouse_report.y = 0;
     }
     return mouse_report;
 }
-*/
