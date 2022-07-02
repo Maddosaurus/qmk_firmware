@@ -34,3 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Tilt the sensor input to the left and invert the left/right axis */
 #define ROTATIONAL_TRANSFORM_ANGLE -60
 #define POINTING_DEVICE_INVERT_X
+
+/* Config general trackball and scroll CPI/DPI */
+#define TB_MOUSE_CPI 800
+#define TB_SCROLL_CPI 100

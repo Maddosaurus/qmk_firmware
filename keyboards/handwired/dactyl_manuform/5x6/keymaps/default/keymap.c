@@ -56,13 +56,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
+/* //////////////////////////
+         Mouse Setup
+   /////////////////////////*/
+
+
 void pointing_device_init_kb(void) {
+    #ifdef PMW3360_CPI
 
-#ifdef PMW3360_CPI
-pointing_device_set_cpi(800);
-#endif
+
+    pointing_device_set_cpi(TB_MOUSE_CPI);
+
+    #endif
 }
-
 
 // FIXME: Find source for this
 static bool scrolling_mode = false;
@@ -71,12 +77,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case _SCROLL:  // If we're on the _SCROLL layer enable scrolling mode
             scrolling_mode = true;
-            pointing_device_set_cpi(100);
+            pointing_device_set_cpi(TB_SCROLL_CPI);
             break;
         default:
             if (scrolling_mode) {  // check if we were scrolling before and set disable if so
                 scrolling_mode = false;
-                pointing_device_set_cpi(800);
+                pointing_device_set_cpi(TB_MOUSE_CPI);
             }
             break;
     }
