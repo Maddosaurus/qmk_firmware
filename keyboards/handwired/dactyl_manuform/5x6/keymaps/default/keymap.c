@@ -18,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          KC_LBRC,KC_RBRC,                                                       KC_ENT, KC_BSPC, 
                                          RAISE,KC_SPC,                           KC_LGUI, LOWER,
                                          KC_TAB,SCHO,                            _______,  _______,
-                                         KC_BSPC, KC_GRV,                        KC_LALT, KC_DELETE
+                                         KC_BSPC, KC_GRV,                        KC_LALT, KC_EQL
     ),
 
     [_LOWER] = LAYOUT_5x6(
@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC, RALT(KC_Y) , KC_P8 , RALT(KC_P) ,_______,KC_PLUS,
         _______,RALT(KC_Q),RALT(KC_S),_______,_______,_______,                        KC_RPRN, KC_P4 , KC_P5 , KC_P6 ,KC_MINS,KC_PIPE,
         _______,_______,_______,_______,_______,_______,                        _______, KC_P1 , KC_P2 , KC_P3 ,KC_EQL ,KC_UNDS,
-                        _______,KC_PSCR,                                                        _______, KC_P0,
+                        _______,KC_PSCR,                                                        _______, _______,
                                                 _______,_______,            _______,_______,
                                                 _______,_______,            _______,_______,
                                                 _______,_______,            _______,_______
@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC,_______,KC_NLCK,KC_INS ,KC_SLCK,KC_MUTE,
           _______,KC_LEFT,KC_UP  ,KC_DOWN,KC_RGHT,KC_LPRN,                        KC_RPRN,KC_MPRV,KC_MPLY,KC_MNXT,_______,KC_VOLU,
           _______,_______,_______,_______,_______,_______,                        _______,_______,_______,_______,_______,KC_VOLD,
-                        _______,_______,                                                        KC_EQL ,_______,
+                        _______,_______,                                                        KC_EQL ,KC_DELETE,
                                                   _______,_______,            _______,_______,
                                                   _______,_______,            _______,_______,
                                                KC_MS_BTN2,KC_MS_BTN1,         _______,_______
