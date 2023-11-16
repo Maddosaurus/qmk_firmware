@@ -1,0 +1,3 @@
+# Enable trackball support
+POINTING_DEVICE_DRIVER = pmw3360
+POINTING_DEVICE_ENABLE = yes
