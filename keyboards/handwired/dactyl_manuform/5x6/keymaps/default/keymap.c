@@ -7,7 +7,7 @@
 
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
-#define SCHO LT(_SCROLL,KC_HOME)
+#define SCHO LT(_SCROLL,KC_END)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_5x6(
@@ -17,7 +17,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,                         KC_N  , KC_M  ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLASH,
                          KC_LBRC,KC_RBRC,                                                       KC_ENT, KC_BSPC, 
                                          RAISE,KC_SPC,                           KC_LGUI, LOWER,
-                                         KC_TAB,SCHO,                            _______,  _______,
+                                         KC_HOME,SCHO,                            _______,  _______,
                                          KC_BSPC, KC_GRV,                        KC_LALT, KC_EQL
     ),
 
