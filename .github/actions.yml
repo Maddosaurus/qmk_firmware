@@ -1,0 +1,25 @@
+name: Build sofle QMK config
+
+on:
+  push:
+    branches:
+      - soflem
+  pull_request: {}
+  workflow_dispatch:
+
+jobs:
+  build-qmk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: maddosaurus/build-qmk-fw@v1
+        with:
+          keyboard: splitkb/aurora/sofle_v2
+          keymap: maddosaurus
+          output-dir: qmk-firmware-to-be-flashed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: built-images
+          path: qmk-firmware-to-be-flashed
