@@ -10,14 +10,13 @@ on:
 jobs:
   build-qmk:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: maddosaurus/build-qmk-fw@master
         with:
           keyboard: splitkb/aurora/sofle_v2
           keymap: maddosaurus
-          local-keymap-path: /github/workspace/keyboards/splitkb/aurora/sofle_v2/keymaps/maddosaurus
+          local-keymap-path: $GITHUB_WORKSPACE/keyboards/splitkb/aurora/sofle_v2/keymaps/maddosaurus
           output-dir: qmk-firmware-to-be-flashed
 
       - uses: actions/upload-artifact@v4
