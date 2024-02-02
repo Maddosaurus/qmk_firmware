@@ -40,17 +40,17 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     // 1: right encoder
     if (index == 0) {
 		if (clockwise) {
-			tap_code(KC_WFWD);
+			tap_code(KC_BTN5); // Mouse Forward 
 		} else {
-			tap_code(KC_WBAK);
+			tap_code(KC_BTN4); // Mouse Back
 		}
     }
 
 	if (index == 1) {
 		if (clockwise) {
-			tap_code(KC_WH_D);
+			tap_code(KC_WH_D); // Mousewheel down
 		} else {
-			tap_code(KC_WH_U);
+			tap_code(KC_WH_U); // Mousewheel up
 		}
     }
 
